@@ -3,6 +3,8 @@
 /// </summary>
 class ConsoleSpinner
 {
+    const string TURN_BUF = "/-\\|";
+
     int _counter = 0;
     bool IsLoading;
     string Text;
@@ -115,16 +117,8 @@ class ConsoleSpinner
 
         while (IsLoading)
         {
-            _counter++;
-            switch (_counter % 4)
-            {
-                case 0: Console.Write($"{LeftBrackets}/{RightBrackets}"); break;
-                case 1: Console.Write($"{LeftBrackets}-{RightBrackets}"); break;
-                case 2: Console.Write($"{LeftBrackets}\\{RightBrackets}"); break;
-                case 3: Console.Write($"{LeftBrackets}|{RightBrackets}"); break;
-            }
+            Console.Write($"{LeftBrackets}{TURN_BUF[_counter++ % 4]}{RightBrackets}");
             Console.SetCursorPosition(Console.CursorLeft - 3, Console.CursorTop);
-
             Thread.Sleep(Delay);
         }
     }

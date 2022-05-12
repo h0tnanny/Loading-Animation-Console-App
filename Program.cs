@@ -9,6 +9,6 @@ foreach (var entry in methods)
 {
     ConsoleSpinner consoleSpinner = new(entry, "[", "]", 500, ConsoleSpinner.PositionSpinner.Left);
     Task.Run(() => consoleSpinner.Turn());
-    Thread.Sleep(new Random().Next(1000,3500));
+    Thread.Sleep(5000);
     consoleSpinner.Stop("OK", ConsoleColor.Green);
 }
